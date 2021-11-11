@@ -12,7 +12,7 @@ void myEventHandler()
 
 void setup()
 {
-  attachInterrupt(digitalPinToInterrupt(2), myEventHandler, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(2), CB(myEventHandler), CHANGE);
 }
 
 void loop()

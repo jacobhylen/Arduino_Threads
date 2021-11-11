@@ -90,6 +90,26 @@ private:
 
 #define ARDUINO_THREADS_TO_STRING(sequence) #sequence
 
+
+/**************************************************************************************
+ * CALLBACK HELPERS DECLARATION
+ **************************************************************************************/
+struct __callback__container__ {
+  mbed::Callback<void()> fn;
+};
+
+inline void attachInterrupt(pin_size_t interruptNum, mbed::Callback<void()> func, PinStatus mode) {
+  struct __callback__container__* a = new __callback__container__();
+  a->fn = func;
+  auto callback = [](void* a) -> void {
+    ((__callback__container__*)a)->fn();
+  };
+
+  attachInterruptParam(interruptNum, callback, mode, (void*)a);
+}
+
+#define CB(x) mbed::callback(this, &ARDUINO_THREADS_CONCAT(tabname, Class)::x)
+
 /**************************************************************************************
  * CLASS DECLARATION
  **************************************************************************************/
