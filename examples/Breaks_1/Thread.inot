@@ -4,7 +4,11 @@
  * resulting in a compile error.
  */
 
-int myFunc(int const a, int const b);
+/* To fix this in the "class-wrapping" method, don't write
+ * forward declarations.
+ */
+
+//int myFunc(int const a, int const b);
 
 void setup()
 {

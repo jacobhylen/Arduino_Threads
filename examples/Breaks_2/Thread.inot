@@ -5,7 +5,11 @@
  * 'void myEventHandler(void)'
  */
 
-void myEventHandler()
+/* To fix this in the "class-wrapping" method, add `static`
+ * in front of the callback declaration.
+ */
+
+static void myEventHandler()
 {
   /* Do something. */
 }

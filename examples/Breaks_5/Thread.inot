@@ -13,7 +13,7 @@ void loop()
 
 }
 
-void myEventHandler()
+static void myEventHandler()
 {
   /* Do something. */
 }

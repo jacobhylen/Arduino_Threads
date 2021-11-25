@@ -1,6 +1,12 @@
 /* Breaks for all kind of stuff ...
  */
 
+/* To fix this in the "class-wrapping" method, remove `static`
+ * and change objects declarations
+ * from `Classname obj(args...)`
+ * to `Classname obj = Classname{args..}`
+ */
+
 /**************************************************************************************
  * CONSTANTS
  **************************************************************************************/
@@ -12,7 +18,8 @@ static byte constexpr LSM6DSOX_WHO_AM_I_REG = 0x0F;
  * GLOBAL VARIABLES
  **************************************************************************************/
 
-BusDevice lsm6dsox(Wire, LSM6DSOX_ADDRESS);
+// BusDevice lsm6dsox(Wire, LSM6DSOX_ADDRESS);
+BusDevice lsm6dsox = BusDevice{Wire, LSM6DSOX_ADDRESS};
 
 /**************************************************************************************
  * FUNCTIONS
